@@ -14,7 +14,7 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
     private lateinit var buttonToast2: Button
     private lateinit var spinner: Spinner
     private lateinit var adapter: ArrayAdapter<CharSequence>
-    private lateinit var container: RelativeLayout
+    private lateinit var container: LinearLayout
     private lateinit var editText: EditText
     private lateinit var textviewDice: TextView
     private lateinit var diceButton: Button
