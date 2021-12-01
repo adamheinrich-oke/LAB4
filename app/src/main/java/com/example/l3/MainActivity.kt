@@ -14,7 +14,7 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
     private lateinit var buttonToast2: Button
     private lateinit var spinner: Spinner
     private lateinit var adapter: ArrayAdapter<CharSequence>
-    private lateinit var container: ConstraintLayout
+    private lateinit var container: RelativeLayout
     private lateinit var editText: EditText
     private lateinit var textviewDice: TextView
     private lateinit var diceButton: Button
@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
         setContentView(R.layout.activity_main)
 
         textView = findViewById(R.id.textView1)
-        buttonToast = findViewById(R.id.button_toast)
+        buttonToast = findViewById(R.id.button_toast_RR)
         buttonToast.setOnClickListener { displayToast() }
         spinner = findViewById(R.id.spinner1)
         container = findViewById(R.id.container)
