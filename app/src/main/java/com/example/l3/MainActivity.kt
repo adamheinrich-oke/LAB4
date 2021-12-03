@@ -3,9 +3,13 @@ package com.example.l3
 import android.content.res.Configuration
 import android.os.Bundle
 import android.util.TypedValue
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
+
 
 class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
 
@@ -35,7 +39,27 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
         spinner.adapter = adapter
         spinner.onItemSelectedListener = this
 
+
     }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.option_menu, menu)
+        val item = menu.findItem(R.id.app_bar_switch) as MenuItem
+        item.setActionView(R.layout.switch_item)
+        val switchAB = item
+            .actionView.findViewById<Switch>(R.id.switchAB)
+        switchAB.isChecked = true
+        switchAB.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                delegate.localNightMode = AppCompatDelegate.MODE_NIGHT_YES;
+            } else {
+                delegate.localNightMode = AppCompatDelegate.MODE_NIGHT_NO;
+
+            }
+        }
+        return true
+    }
+
 
     private fun displayToast() =
         Toast.makeText(applicationContext, "Hello Kotlin", Toast.LENGTH_LONG).show()
@@ -59,6 +83,7 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
         }
     }
 
+
     override fun onNothingSelected(p0: AdapterView<*>?) {
         TODO("Not yet implemented")
     }
@@ -77,5 +102,6 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
 
         }
     }
+
 
 }
